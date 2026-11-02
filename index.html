@@ -94,7 +94,7 @@ footer{background:var(--band);border-top:1px solid var(--line);padding:28px 5vw;
    Products, colors, prices and photos are edited in products.json (use Pages CMS). */
 const SHOP = {
   name: "malla Shop",
-  fbUsername: "https://www.facebook.com/profile.php?id=61595458648895",     // from facebook.com/yourpagename
+  fbUsername: "malla shop",     // from facebook.com/yourpagename
   price: 35                       // default price in DT if a product has none
 };
 let MODELS = [];
@@ -112,7 +112,7 @@ const T = k => TX[lang][k];
 const L = o => o[lang] || o.fr;
 const fmt = n => n + " " + T("cur");
 const fb = "https://m.me/" + SHOP.fbUsername;
-$("fbLink").href = "https://www.facebook.com/" + SHOP.fbUsername;
+$("fbLink").href = "hhttps://www.facebook.com/profile.php?id=61595458648895" + SHOP.fbUsername;
 $("yr").textContent = new Date().getFullYear();
 $("brand").textContent = $("brand2").textContent = SHOP.name;
 const bg = h => h.length > 1 ? `linear-gradient(135deg,${h[0]} 50%,${h[1]} 50%)` : h[0];
