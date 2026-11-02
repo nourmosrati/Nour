@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Jost:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f9f8f4;--band:#fcfbf8;--card:#fcfbf8;--ink:#181612;--mute:#6f6d68;--line:#e6e4de;--accent:#b66189;--on-accent:#fff;--nude1:#efece6;--nude2:#dcd8d0;--nude3:#c8c3b9;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181612;--band:#211f1b;--card:#211f1b;--ink:#f4f2ec;--mute:#a09d96;--line:#3a3833;--accent:#d489ab;--on-accent:#181612;--nude1:#3a3833;--nude2:#4a4842;--nude3:#5c5a54}}
+:root[data-theme="dark"]{--bg:#181612;--band:#211f1b;--card:#211f1b;--ink:#f4f2ec;--mute:#a09d96;--line:#3a3833;--accent:#d489ab;--on-accent:#181612;--nude1:#3a3833;--nude2:#4a4842;--nude3:#5c5a54}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Jost,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] input,html[lang="ar"] select{font-family:Cairo,Tahoma,system-ui,sans-serif}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--band);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:14px 5vw;flex-wrap:wrap}
+.brand{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.7rem;margin-inline-end:auto;text-decoration:none;color:var(--ink)}
+header a.nav{color:var(--ink);text-decoration:none;font-weight:500}
+.btn{border:0;border-radius:10px;padding:10px 18px;font-weight:500;cursor:pointer;background:var(--accent);color:var(--on-accent);text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--nude3)}
+.intro{padding:40px 5vw 8px;max-width:1300px;margin:0 auto}
+.intro h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:0 0 10px}
+html[lang="ar"] .intro h1,html[lang="ar"] .brand,html[lang="ar"] aside h2{font-family:Cairo,Tahoma,sans-serif}
+.intro p{color:var(--mute);margin:0;max-width:52ch}
+main{max-width:1300px;margin:0 auto;padding:20px 5vw 80px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.chip{border:1px solid var(--nude2);background:transparent;border-radius:999px;padding:7px 16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 22px}
+.pic{aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:var(--nude1)}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.info{padding:12px 2px 0;display:flex;flex-direction:column;gap:6px}
+.info h3{margin:0;font-weight:500;font-size:1.1rem}
+.price{color:var(--accent);font-weight:600;font-size:1.1rem}
+.lbl{color:var(--mute);font-size:.9rem}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--nude3);cursor:pointer;padding:0}
+.sw button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+.row{display:flex;gap:8px;margin-top:4px}
+.row select{border:1px solid var(--nude2);background:var(--card);border-radius:10px;padding:8px}
+.row .btn{flex:1}
+aside{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--card);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:10;display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top,0px)) 18px calc(16px + env(safe-area-inset-bottom,0px))}
+aside.open{transform:none}
+aside h2{margin:0 0 10px;font-family:"Playfair Display",Georgia,serif}
+#items{overflow:auto;flex:1}
+.it{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.it small,.note{color:var(--mute);display:block}
+.note{font-size:.9rem;margin:6px 0 0}
+.it button{border:0;background:none;color:var(--accent);cursor:pointer}
+form{display:grid;gap:8px;margin-top:12px}
+input{border:1px solid var(--nude2);background:var(--bg);border-radius:10px;padding:10px}
+.tot{display:flex;justify-content:space-between;font-weight:600;margin-top:10px}
+footer{background:var(--band);border-top:1px solid var(--line);padding:28px 5vw;text-align:center;color:var(--mute)}
+@media (prefers-reduced-motion:reduce){aside{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#" id="brand"></a>
+  <a class="nav" href="#shop" data-t="products"></a>
+  <a class="nav" id="fbLink" target="_blank" rel="noopener" href="#">Facebook</a>
+  <button class="btn ghost" id="langBtn" aria-label="Language"></button>
+  <button class="btn" id="openCart"><span data-t="cart"></span> (<span id="count">0</span>)</button>
+</header>
+<section class="intro">
+  <h1 data-t="title"></h1>
+  <p data-t="intro"></p>
+</section>
+<main id="shop">
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>© <span id="yr"></span> <span id="brand2"></span> · <span data-t="footer"></span></footer>
+
+<aside id="cart" aria-label="Cart">
+  <h2 data-t="order"></h2>
+  <div id="items"></div>
+  <div class="tot"><span data-t="total"></span><span id="total"></span></div>
+  <form id="f">
+    <input id="name" data-tp="name" required autocomplete="name">
+    <input id="phone" data-tp="phone" required inputmode="tel" autocomplete="tel">
+    <input id="city" data-tp="addr" required autocomplete="street-address">
+    <button class="btn" type="submit" data-t="send"></button>
+    <button class="btn ghost" type="button" id="close" data-t="keep"></button>
+  </form>
+  <p class="note" data-t="note"></p>
+</aside>
+
+<script>
+/* ====== EDIT THIS SECTION (shop settings only) ======
+   Products, colors, prices and photos are edited in products.json (use Pages CMS). */
+const SHOP = {
+  name: "Your Shop",
+  fbUsername: "yourpagename",     // from facebook.com/yourpagename
+  price: 35                       // default price in DT if a product has none
+};
+let MODELS = [];
+/* ================================================== */
+
+const CATS = {sport:{fr:"Sport",ar:"رياضي"},oversize:{fr:"Oversize",ar:"واسع"},molleton:{fr:"Molleton",ar:"مبطّن"},velours:{fr:"Velours côtelé",ar:"قطيفة مضلعة"}};
+const TX = {
+ fr:{products:"Produits",cart:"Panier",title:"Nouvelle collection",intro:"Choisissez la couleur et la taille, envoyez votre commande sur Messenger, paiement à la livraison.",footer:"Livraison partout en Tunisie",all:"Tout",add:"Ajouter au panier",added:"Ajouté",size:"Taille",color:"Couleur",yrs:"ans",empty:"Votre panier est vide. Choisissez un article.",order:"Votre commande",total:"Total",name:"Nom et prénom",phone:"Téléphone",addr:"Ville et adresse",send:"Envoyer la commande sur Messenger",keep:"Continuer les achats",note:"Le texte de la commande est copié. Collez-le dans la conversation Messenger qui s’ouvre.",rm:"Supprimer",need:"Ajoutez d’abord un article.",neworder:"Nouvelle commande",cur:"DT",btn:"العربية",copy:"Copiez votre commande et collez-la dans Messenger :"},
+ ar:{products:"المنتجات",cart:"السلة",title:"المجموعة الجديدة",intro:"اختاري اللون والمقاس، وأرسلي طلبك عبر ماسنجر، والدفع عند الاستلام.",footer:"التوصيل إلى كامل تونس",all:"الكل",add:"أضف إلى السلة",added:"تمت الإضافة",size:"المقاس",color:"اللون",yrs:"سنوات",empty:"سلتك فارغة. اختر منتجًا.",order:"طلبك",total:"المجموع",name:"الاسم واللقب",phone:"رقم الهاتف",addr:"المدينة والعنوان",send:"إرسال الطلب عبر ماسنجر",keep:"متابعة التسوق",note:"تم نسخ نص الطلب. الصقه في محادثة ماسنجر التي ستفتح.",rm:"حذف",need:"أضف منتجًا أولاً.",neworder:"طلب جديد",cur:"د.ت",btn:"Français",copy:"انسخ طلبك والصقه في ماسنجر:"}
+};
+let lang = "fr", cat = "all", cart = [], st = {};
+try{ lang = localStorage.getItem("lang") || "fr"; }catch(_){}
+const $ = id => document.getElementById(id);
+const T = k => TX[lang][k];
+const L = o => o[lang] || o.fr;
+const fmt = n => n + " " + T("cur");
+const fb = "https://m.me/" + SHOP.fbUsername;
+$("fbLink").href = "https://www.facebook.com/" + SHOP.fbUsername;
+$("yr").textContent = new Date().getFullYear();
+$("brand").textContent = $("brand2").textContent = SHOP.name;
+const bg = h => h.length > 1 ? `linear-gradient(135deg,${h[0]} 50%,${h[1]} 50%)` : h[0];
+const catName = c => CATS[c] ? L(CATS[c]) : c;
+
+function applyLang(){
+  document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-t]").forEach(e => e.textContent = T(e.dataset.t));
+  document.querySelectorAll("[data-tp]").forEach(e => e.placeholder = T(e.dataset.tp));
+  $("langBtn").textContent = T("btn"); document.title = SHOP.name;
+  renderFilters(); renderGrid(); renderCart();
+}
+function renderFilters(){
+  const cats = ["all", ...new Set(MODELS.map(m => m.cat).filter(Boolean))];
+  $("filters").innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c==="all"?T("all"):catName(c)}</button>`).join("");
+  $("filters").querySelectorAll("button").forEach(b => b.onclick = () => { cat = b.dataset.c; renderFilters(); renderGrid(); });
+}
+function renderGrid(){
+  $("grid").innerHTML = MODELS.filter(m => cat==="all" || m.cat===cat).map(m => {
+    const s = st[m.id] || (st[m.id] = {c:0, s:m.sizes[0]}), v = m.v[s.c];
+    return `<article>
+      <div class="pic"><img src="${v.img}" alt="${L(m)} – ${L(v)}"></div>
+      <div class="info">
+        <h3>${L(m)}</h3>
+        <span class="price">${fmt(m.price)}</span>
+        <span class="lbl">${T("color")}: ${L(v)}</span>
+        <div class="sw">${m.v.map((x,i) => `<button style="background:${bg(x.hex)}" aria-label="${L(x)}" aria-pressed="${i===s.c}" data-m="${m.id}" data-c="${i}"></button>`).join("")}</div>
+        <div class="row">
+          <select aria-label="${T("size")}" data-m="${m.id}">${m.sizes.map(z => `<option value="${z}" ${z===s.s?"selected":""}>${z} ${T("yrs")}</option>`).join("")}</select>
+          <button class="btn add" data-m="${m.id}">${T("add")}</button>
+        </div>
+      </div></article>`; }).join("");
+  const g = $("grid");
+  g.querySelectorAll(".sw button").forEach(b => b.onclick = () => { st[b.dataset.m].c = +b.dataset.c; renderGrid(); });
+  g.querySelectorAll("select").forEach(e => e.onchange = () => st[e.dataset.m].s = e.value);
+  g.querySelectorAll(".add").forEach(b => b.onclick = () => {
+    const m = MODELS.find(x => x.id == b.dataset.m), s = st[m.id], v = m.v[s.c];
+    cart.push({fr:m.fr, ar:m.ar, cfr:v.fr, car:v.ar, price:m.price, size:s.s}); renderCart();
+    b.textContent = T("added"); setTimeout(() => b.textContent = T("add"), 900);
+  });
+}
+function renderCart(){
+  $("count").textContent = cart.length;
+  $("items").innerHTML = cart.length ? cart.map((c,i) => `<div class="it"><div>${L(c)}<small>${T("color")}: ${lang==="ar"?c.car:c.cfr} · ${T("size")}: ${c.size} ${T("yrs")} · ${fmt(c.price)}</small></div><button data-i="${i}">${T("rm")}</button></div>`).join("") : `<p class="note">${T("empty")}</p>`;
+  $("items").querySelectorAll("button").forEach(b => b.onclick = () => { cart.splice(b.dataset.i,1); renderCart(); });
+  $("total").textContent = fmt(cart.reduce((s,c) => s+c.price, 0));
+}
+$("openCart").onclick = () => $("cart").classList.add("open");
+$("close").onclick = () => $("cart").classList.remove("open");
+$("langBtn").onclick = () => { lang = lang === "fr" ? "ar" : "fr"; try{ localStorage.setItem("lang", lang); }catch(_){} applyLang(); };
+$("f").onsubmit = async e => {
+  e.preventDefault();
+  if(!cart.length){ alert(T("need")); return; }
+  const lines = cart.map(c => `- ${L(c)}, ${lang==="ar"?c.car:c.cfr}, ${c.size} ${T("yrs")}, ${fmt(c.price)}`).join("\n");
+  const msg = `${T("neworder")}\n${lines}\n${T("total")}: ${$("total").textContent}\n${$("name").value}\n${$("phone").value}\n${$("city").value}`;
+  try{ await navigator.clipboard.writeText(msg); }catch(_){ prompt(T("copy"), msg); }
+  window.open(fb, "_blank", "noopener");
+};
+
+async function init(){
+  try{
+    const d = await (await fetch("products.json", {cache:"no-store"})).json();
+    const split = (x, d0) => String(x || d0).split(/[\/;|,\s]+/).filter(Boolean);
+    MODELS = (d.products || []).map((m,i) => ({id:i+1, fr:m.fr, ar:m.ar || m.fr, cat:m.cat || "", price:+m.price || SHOP.price,
+      sizes:split(m.sizes, "4 6 8 10 12"),
+      v:(m.colors || []).map(c => ({fr:c.fr, ar:c.ar || c.fr, hex:split(c.hex, "#c8c3b9"), img:c.image}))})).filter(m => m.v.length);
+  }catch(e){ console.error("Could not load products.json (open the site from its web address, not as a local file)", e); }
+  applyLang();
+}
+init();
+</script>
+</body>
+</html>

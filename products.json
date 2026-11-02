@@ -1,0 +1,133 @@
+{
+  "products": [
+    {
+      "fr": "Ensemble sport bicolore",
+      "ar": "طقم رياضي ثنائي اللون",
+      "cat": "sport",
+      "price": 35,
+      "sizes": "4 6 8 10 12",
+      "colors": [
+        {
+          "fr": "Gris et noir",
+          "ar": "رمادي وأسود",
+          "hex": "#9ea3a8 #14110e",
+          "image": "photos/p01.jpg"
+        },
+        {
+          "fr": "Vert et noir",
+          "ar": "أخضر وأسود",
+          "hex": "#8fb9a6 #14110e",
+          "image": "photos/p02.jpg"
+        }
+      ]
+    },
+    {
+      "fr": "Ensemble zippé rayé",
+      "ar": "طقم بسحاب مخطط",
+      "cat": "sport",
+      "price": 35,
+      "sizes": "4 6 8 10 12",
+      "colors": [
+        {
+          "fr": "Rouge et noir",
+          "ar": "أحمر وأسود",
+          "hex": "#a3122f #14110e",
+          "image": "photos/p03.jpg"
+        }
+      ]
+    },
+    {
+      "fr": "Ensemble oversize",
+      "ar": "طقم واسع",
+      "cat": "oversize",
+      "price": 35,
+      "sizes": "4 6 8 10 12",
+      "colors": [
+        {
+          "fr": "Marron",
+          "ar": "بني",
+          "hex": "#5a4538",
+          "image": "photos/p04.jpg"
+        },
+        {
+          "fr": "Noir",
+          "ar": "أسود",
+          "hex": "#1a1816",
+          "image": "photos/p05.jpg"
+        }
+      ]
+    },
+    {
+      "fr": "Ensemble molleton",
+      "ar": "طقم مبطّن",
+      "cat": "molleton",
+      "price": 35,
+      "sizes": "4 6 8 10 12",
+      "colors": [
+        {
+          "fr": "Rose poudré",
+          "ar": "وردي فاتح",
+          "hex": "#d49aa9",
+          "image": "photos/p06.jpg"
+        },
+        {
+          "fr": "Mauve",
+          "ar": "موف",
+          "hex": "#b0678f",
+          "image": "photos/p07.jpg"
+        },
+        {
+          "fr": "Bordeaux",
+          "ar": "عنابي",
+          "hex": "#8b1a2b",
+          "image": "photos/p08.jpg"
+        },
+        {
+          "fr": "Fuchsia",
+          "ar": "فوشيا",
+          "hex": "#b42a86",
+          "image": "photos/p09.jpg"
+        }
+      ]
+    },
+    {
+      "fr": "Ensemble velours côtelé",
+      "ar": "طقم قطيفة مضلعة",
+      "cat": "velours",
+      "price": 35,
+      "sizes": "4 6 8 10 12",
+      "colors": [
+        {
+          "fr": "Noir",
+          "ar": "أسود",
+          "hex": "#1a1816",
+          "image": "photos/p10.jpg"
+        },
+        {
+          "fr": "Marron",
+          "ar": "بني",
+          "hex": "#7a5a43",
+          "image": "photos/p11.jpg"
+        },
+        {
+          "fr": "Camel",
+          "ar": "بيج جملي",
+          "hex": "#b6916a",
+          "image": "photos/p12.jpg"
+        },
+        {
+          "fr": "Vert kaki",
+          "ar": "كاكي",
+          "hex": "#5e6240",
+          "image": "photos/p13.jpg"
+        },
+        {
+          "fr": "Chocolat",
+          "ar": "شوكولا",
+          "hex": "#4f372a",
+          "image": "photos/p14.jpg"
+        }
+      ]
+    }
+  ]
+}

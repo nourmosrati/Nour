@@ -1,0 +1,29 @@
+media:
+  input: photos
+  output: photos
+  extensions: [jpg, jpeg, png, webp]
+content:
+  - name: products
+    label: Products
+    type: file
+    path: products.json
+    fields:
+      - name: products
+        label: Models
+        type: object
+        list: true
+        fields:
+          - { name: fr, label: Name (French), type: string }
+          - { name: ar, label: Name (Arabic), type: string }
+          - { name: cat, label: Category, type: string }
+          - { name: price, label: Price (DT), type: number }
+          - { name: sizes, label: Sizes (separated by spaces), type: string }
+          - name: colors
+            label: Colors (each color has its own photo)
+            type: object
+            list: true
+            fields:
+              - { name: fr, label: Color name (French), type: string }
+              - { name: ar, label: Color name (Arabic), type: string }
+              - { name: hex, label: Color code (e.g. #b66189), type: string }
+              - { name: image, label: Photo, type: image }
